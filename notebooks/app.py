@@ -1,9 +1,13 @@
 import streamlit as st
 import pandas as pd
+import os
 import pickle
 
-with open("Employee_attrition_model.pkl", "rb") as f:
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "Employee_attrition_model.pkl")
+
+with open(MODEL_PATH, "rb") as f:
     model = pickle.load(f)
+
 
 st.title("Employee Attrition Prediction App 💼")
 st.write("Enter employee details below to predict if they are likely to leave or stay:")
